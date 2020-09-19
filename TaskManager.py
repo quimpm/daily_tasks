@@ -4,7 +4,7 @@ from time import strptime
 
 class TaskManager():
 
-    db = TinyDB('db.json')
+    db = TinyDB('/home/quimpm/stuff/tasks_manager/db.json')
     Task = Query()
 
     @staticmethod
