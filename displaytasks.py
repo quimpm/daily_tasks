@@ -51,6 +51,8 @@ def main():
             tasks = sorted(TaskManager.getDayTasks(date_in_sec), key = lambda x : x['datetime'])
         elif re.search('^[0-9]*$',sys.argv[1]):   
             tasks = sorted(TaskManager.getVariableDayTasks(int(sys.argv[1])), key = lambda x : x['datetime'])
+            if tasks:
+                day = datetime.fromtimestamp(tasks[0]['datetime']).strftime("%d-%m-%Y")
         else:
             print('Usage: tasks [optional]<Nº of days forward from today> or <Exact day date dd-mm-yyyy format>')
             exit(-1)

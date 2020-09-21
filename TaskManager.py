@@ -26,3 +26,9 @@ class TaskManager():
         end_day = (datetime.today() + timedelta(days=n_days)).timestamp()
         tasks = TaskManager.db.search((TaskManager.Task.datetime >= today) & (TaskManager.Task.datetime <= end_day))
         return tasks
+
+    @staticmethod
+    def getInmediateTasks():
+        today = datetime.today().timestamp()
+        inmediate_tasks = TaskManager.db.search((TaskManager.Task.datetime >= today) & (TaskManager.Task.datetime <= (today + 1800)))
+        return inmediate_tasks
