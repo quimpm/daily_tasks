@@ -23,9 +23,9 @@ def write_html_file(tasks, day):
     html.write('<div class="list-group">') 
     html.write('<h3>'+day+'</h3>')
     for item in tasks:
-        if datetime.fromtimestamp(item['datetime']).strftime("%d-%m-%Y") != day:
-            html.write('<h3>'+datetime.fromtimestamp(item['datetime']).strftime("%d-%m-%Y")+'</h3>')
-            day = datetime.fromtimestamp(item['datetime']).strftime("%d-%m-%Y")
+        if datetime.fromtimestamp(item['datetime']).strftime("%A %d-%m-%Y") != day:
+            html.write('<h3>'+datetime.fromtimestamp(item['datetime']).strftime("%A %d-%m-%Y")+'</h3>')
+            day = datetime.fromtimestamp(item['datetime']).strftime("%A %d-%m-%Y")
         html.write('<a href="#" class="list-group-item list-group-item-action">')
         html.write('<div class="d-flex w-100 justify-content-between">')
         html.write('<h5 class="mb-1">'+item['title']+'</h5>')
@@ -41,18 +41,18 @@ def write_html_file(tasks, day):
  
 
 def main():
-    day = date.today().strftime("%d-%m-%Y")
+    day = date.today().strftime("%A %d-%m-%Y")
     if len(sys.argv) == 1:
         tasks = sorted(TaskManager.getDayTasks(datetime.today().timestamp()), key = lambda x : x['datetime'])
     elif len(sys.argv) == 2:
         if re.search('^([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$',sys.argv[1]):
             date_in_sec = datetime.strptime(sys.argv[1]+' 00:00:00', "%d-%m-%Y %H:%M:%S").timestamp()
-            day = datetime.fromtimestamp(date_in_sec).strftime("%d-%m-%Y")
+            day = datetime.fromtimestamp(date_in_sec).strftime("%A %d-%m-%Y")
             tasks = sorted(TaskManager.getDayTasks(date_in_sec), key = lambda x : x['datetime'])
         elif re.search('^[0-9]*$',sys.argv[1]):   
             tasks = sorted(TaskManager.getVariableDayTasks(int(sys.argv[1])), key = lambda x : x['datetime'])
             if tasks:
-                day = datetime.fromtimestamp(tasks[0]['datetime']).strftime("%d-%m-%Y")
+                day = datetime.fromtimestamp(tasks[0]['datetime']).strftime("%A %d-%m-%Y")
         else:
             print('Usage: tasks [optional]<Nº of days forward from today> or <Exact day date dd-mm-yyyy format>')
             exit(-1)
