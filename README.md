@@ -17,7 +17,7 @@ Save and close the file and activate your alias typing:
 ```bash
 source ~/.bash_aliases
 ```
-Also I've made a cron that runs every 10 minutes and notifies you 30 minutes before the task has to be done.
+Also I've made a cron that runs every 10 minutes and notifies you every 10 minuts 30 minutes before the task has to be done.
 Type into de comand line crontab -e and then put into the PENULTIMATE line of the file this line:
 ```bash 
 */10 * * * *    /home/quimpm/stuff/tasks_manager/gui-launcher.sh "/path/to/your/containing/dir/notify.sh"
