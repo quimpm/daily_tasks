@@ -17,7 +17,7 @@ Save and close the file and activate your alias typing:
 ```bash
 source ~/.bash_aliases
 ```
-Also I've made a cron that runs every 10 minutes 30 minutes before the task has to be done.
+Also I've made a cron that runs every 10 minutes and notifies you 30 minutes before the task has to be done.
 Type into de comand line crontab -e and then put into the PENULTIMATE line of the file this line:
 ```bash 
 */10 * * * *    /home/quimpm/stuff/tasks_manager/gui-launcher.sh "/path/to/your/containing/dir/notify.sh"
@@ -25,7 +25,7 @@ Type into de comand line crontab -e and then put into the PENULTIMATE line of th
 
 ## Usage:
 * To add a task write addtask
-* To see the tasks u have u can make it in diferent ways:
+* To see the tasks you can make it in diferent ways:
     * tasks : This will show the tasks u have in the next 24h
     * tasks <number>: This will show the tasks u have in the next <number> days
     * tasks <dd-mm-YYYY>: This will show the tasks you have the <dd-mm_YYYY>
