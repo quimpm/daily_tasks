@@ -1,10 +1,10 @@
 # Task Manager
 
-I made this "Task Manager as a local Agenda for my daily organitzation."
+I made this "Task Manager" as a local Agenda for my daily organitzation.
 
 ## Installation
 
-Write to the comand line:
+Write into the comand line:
 ```bash
 vim ~/.bash_aliases
 ```
@@ -13,12 +13,12 @@ Append to the file:
 alias addtask='python3 /path/to/your/containing/dir/addtask.py'
 alias tasks='/path/to/your/containing/dir/display.sh'
 ```
-Save and close the file and activate u'r alias typing
+Save and close the file and activate your alias typing:
 ```bash
 source ~/.bash_aliases
 ```
 Also I've made a cron that runs every 10 minutes 30 minutes before the task has to be done.
-Type into de comand line crontab -e and then put into the crontab file this line:
+Type into de comand line crontab -e and then put into the PENULTIMATE line of the file this line:
 ```bash 
 */10 * * * *    /home/quimpm/stuff/tasks_manager/gui-launcher.sh "/path/to/your/containing/dir/notify.sh"
 ```
