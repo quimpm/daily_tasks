@@ -12,6 +12,7 @@ Append to the file:
 ```bash
 alias addtask='python3 /path/to/your/containing/dir/addtask.py'
 alias tasks='/path/to/your/containing/dir/display.sh'
+alias removetask='python3 /path/to/your/containing/dir/remove_task.py'
 ```
 Save and close the file and activate your alias typing:
 ```bash
@@ -29,4 +30,4 @@ Type into de comand line crontab -e and then put into the PENULTIMATE line of th
     * tasks : This will show the tasks u have in the next 24h
     * tasks <number>: This will show the tasks u have in the next <number> days
     * tasks <dd-mm-YYYY>: This will show the tasks you have the <dd-mm_YYYY>
-* The remove option is still not implemented, but it will be. Still didn't need it so... Why it should be implemented xD. But i'm pretty sure that I will need it in the future so it will be implemented some day, hope near jajaja.
+* To remove a task type removetask, next the program will ask you for the id of the task you want to remove.

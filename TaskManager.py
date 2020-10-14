@@ -32,3 +32,7 @@ class TaskManager():
         today = datetime.today().timestamp()
         inmediate_tasks = TaskManager.db.search((TaskManager.Task.datetime >= today) & (TaskManager.Task.datetime <= (today + 1800)))
         return inmediate_tasks
+
+    @staticmethod
+    def removeTask(taskID):
+        TaskManager.db.remove(doc_ids=[taskID])

@@ -28,6 +28,7 @@ def write_html_file(tasks, day):
             day = datetime.fromtimestamp(item['datetime']).strftime("%A %d-%m-%Y")
         html.write('<a href="#" class="list-group-item list-group-item-action">')
         html.write('<div class="d-flex w-100 justify-content-between">')
+        html.write('<small>ID: '+str(item.doc_id)+'</small>')
         html.write('<h5 class="mb-1">'+item['title']+'</h5>')
         html.write('<small>'+datetime.fromtimestamp(item['datetime']).strftime("%H:%M:%S")+'</small>')
         html.write('</div>')
